@@ -1,7 +1,8 @@
 import requests
 from bs4 import BeautifulSoup as bs
 import threading
-
+# Made with the help of tutorial from https://www.youtube.com/watch?v=pLHejmLB16o
+# Aleksander Mielczarek
 
 def spider(articles):
     """
