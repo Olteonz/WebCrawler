@@ -16,13 +16,24 @@ client.connect(ADDR)
 
 
 def encrypt(msg):
+    """
+    encrypt function encrypts a string using AES encryption
+
+    :param msg: string (plain text messege)
+    :return: string (encrypted messege)
+    """
     aes = AES.AESCipher('abcdefghijklmnopqrstuvwxyz123456')
     msg = aes.encrypt(msg)
-    print(msg)
     return msg
 
 
 def send(msg):
+    """
+    send function connects to a server and sends an encrypted messege
+
+    :param msg: string (plain text to be sent to the server)
+    :return: N/A
+    """
     msg = encrypt(msg)
     message = msg.encode(FORMAT)
     msg_length = len(message)

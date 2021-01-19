@@ -19,12 +19,25 @@ server.bind(ADDR)
 
 
 def decrypt(msg):
+    """
+    decrypt function decrypts a string using AES decryption
+
+    :param msg: string (encrypted messege)
+    :return: string (decrypted messege)
+    """
     aes = AES.AESCipher('abcdefghijklmnopqrstuvwxyz123456')
     msg = aes.decrypt(msg)
     return msg
 
 
 def handle_client(conn, addr):
+    """
+    handle_client function listens for incoming messeges from the client and prints them to console
+
+    :param conn: the object of connection with the client
+    :param addr: the address of the client
+    :return: N/A
+    """
     print(f"[NEW CONNECTION {addr} connected")
 
     connected = True
@@ -42,6 +55,12 @@ def handle_client(conn, addr):
 
 
 def start():
+    """
+    start function starts listening for incoming connections and forwards the connection to the handle_client
+    client on a new thread
+
+    :return: N/A
+    """
     server.listen()
     print(f"[LISTENING] Server is listening on {SERVER}")
     while True:
